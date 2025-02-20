@@ -13,7 +13,7 @@ Disassembly of section .init:
     1014:	ff d0                	call   *%rax
     1016:	48 83 c4 08          	add    $0x8,%rsp
     101a:	c3                   	ret
-
+// Conditional jump
 Disassembly of section .plt:
 
 0000000000001020 <puts@plt-0x10>:
@@ -30,13 +30,13 @@ Disassembly of section .plt:
     1040:	ff 25 8a 2f 00 00    	jmp    *0x2f8a(%rip)        # 3fd0 <printf@GLIBC_2.2.5>
     1046:	68 01 00 00 00       	push   $0x1
     104b:	e9 d0 ff ff ff       	jmp    1020 <_init+0x20>
-
+//unconditional jumps
 Disassembly of section .plt.got:
 
 0000000000001050 <__cxa_finalize@plt>:
     1050:	ff 25 a2 2f 00 00    	jmp    *0x2fa2(%rip)        # 3ff8 <__cxa_finalize@GLIBC_2.2.5>
     1056:	66 90                	xchg   %ax,%ax
-
+//unconditional jump
 Disassembly of section .text:
 
 0000000000001060 <_start>:
@@ -55,7 +55,7 @@ Disassembly of section .text:
     1085:	f4                   	hlt
     1086:	66 2e 0f 1f 84 00 00 	cs nopw 0x0(%rax,%rax,1)
     108d:	00 00 00 
-
+//unconditional moves 
 0000000000001090 <deregister_tm_clones>:
     1090:	48 8d 3d 79 2f 00 00 	lea    0x2f79(%rip),%rdi        # 4010 <__TMC_END__>
     1097:	48 8d 05 72 2f 00 00 	lea    0x2f72(%rip),%rax        # 4010 <__TMC_END__>
@@ -68,7 +68,7 @@ Disassembly of section .text:
     10b1:	0f 1f 80 00 00 00 00 	nopl   0x0(%rax)
     10b8:	c3                   	ret
     10b9:	0f 1f 80 00 00 00 00 	nopl   0x0(%rax)
-
+//conditional move and conditional jumps
 00000000000010c0 <register_tm_clones>:
     10c0:	48 8d 3d 49 2f 00 00 	lea    0x2f49(%rip),%rdi        # 4010 <__TMC_END__>
     10c7:	48 8d 35 42 2f 00 00 	lea    0x2f42(%rip),%rsi        # 4010 <__TMC_END__>
@@ -86,7 +86,7 @@ Disassembly of section .text:
     10f2:	66 0f 1f 44 00 00    	nopw   0x0(%rax,%rax,1)
     10f8:	c3                   	ret
     10f9:	0f 1f 80 00 00 00 00 	nopl   0x0(%rax)
-
+//conditional jump
 0000000000001100 <__do_global_dtors_aux>:
     1100:	f3 0f 1e fa          	endbr64
     1104:	80 3d 05 2f 00 00 00 	cmpb   $0x0,0x2f05(%rip)        # 4010 <__TMC_END__>
@@ -105,11 +105,11 @@ Disassembly of section .text:
     1135:	0f 1f 00             	nopl   (%rax)
     1138:	c3                   	ret
     1139:	0f 1f 80 00 00 00 00 	nopl   0x0(%rax)
-
+//conditional jump
 0000000000001140 <frame_dummy>:
     1140:	f3 0f 1e fa          	endbr64
     1144:	e9 77 ff ff ff       	jmp    10c0 <register_tm_clones>
-
+//unconditional jump
 0000000000001149 <task1>:
     1149:	55                   	push   %rbp
     114a:	48 89 e5             	mov    %rsp,%rbp
@@ -142,7 +142,7 @@ Disassembly of section .text:
     11c5:	90                   	nop
     11c6:	c9                   	leave
     11c7:	c3                   	ret
-
+//unconditional move
 00000000000011c8 <task2>:
     11c8:	55                   	push   %rbp
     11c9:	48 89 e5             	mov    %rsp,%rbp
@@ -180,7 +180,7 @@ Disassembly of section .text:
     125c:	90                   	nop
     125d:	c9                   	leave
     125e:	c3                   	ret
-
+//unconditional move
 000000000000125f <task3>:
     125f:	55                   	push   %rbp
     1260:	48 89 e5             	mov    %rsp,%rbp
@@ -205,7 +205,7 @@ Disassembly of section .text:
     12b4:	90                   	nop
     12b5:	c9                   	leave
     12b6:	c3                   	ret
-
+//unconditional move
 00000000000012b7 <task4>:
     12b7:	55                   	push   %rbp
     12b8:	48 89 e5             	mov    %rsp,%rbp
@@ -268,7 +268,7 @@ Disassembly of section .text:
     13b3:	90                   	nop
     13b4:	c9                   	leave
     13b5:	c3                   	ret
-
+//conditional jumps and conditional move
 00000000000013b6 <task5>:
     13b6:	55                   	push   %rbp
     13b7:	48 89 e5             	mov    %rsp,%rbp
@@ -315,7 +315,7 @@ Disassembly of section .text:
     1472:	90                   	nop
     1473:	c9                   	leave
     1474:	c3                   	ret
-
+//unconditional move
 0000000000001475 <main>:
     1475:	55                   	push   %rbp
     1476:	48 89 e5             	mov    %rsp,%rbp
@@ -442,7 +442,7 @@ Disassembly of section .text:
     16e1:	b8 00 00 00 00       	mov    $0x0,%eax
     16e6:	c9                   	leave
     16e7:	c3                   	ret
-
+//conditional move
 Disassembly of section .fini:
 
 00000000000016e8 <_fini>:
